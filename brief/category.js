@@ -26,16 +26,30 @@ async function getMealsByCategories(category) {
 
 	try {
 		const res = await fetch(url);
-		console.log(res);
 		if (!res.ok) {
 			throw new Error(`Response status: ${res.status}`);
 		}
 
 		const result = await res.json();
 		console.log("Success", result);
+		result.meals.forEach((recipe) => {
+			const newDiv = document.createElement("div");
+			const newImg = document.createElement("img");
+			newDiv.textContent = recipe.strMeal;
+			newDiv.id = recipe.idMeal;
+			newDiv.classList.add("recipe-div");
+			newImg.src = `${recipe.strMealThumb}/preview`;
+			newDiv.appendChild(newImg);
+			recipeContainer.appendChild(newDiv);
+		});
 	} catch (error) {
 		console.error("Error", error.message);
 	}
 }
 
 getCategories();
+
+const getCategoryMeals = () => {
+	recipeContainer.innerHTML=""
+	getMealsByCategories(categorySelect.value);
+};

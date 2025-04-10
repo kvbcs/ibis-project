@@ -27,7 +27,10 @@
 					<select
 						name="search-category"
 						id="search-category"
-					></select>
+						onchange="getCategoryMeals()"
+					>
+						<option value="">Choisir une catégorie</option>
+					</select>
 				</article>
 
 				<article id="flex-div">
@@ -43,7 +46,13 @@
 				</article>
 				<article>
 					<label for="search-country">Rechercher par pays</label>
-					<select name="search-country" id="search-country"></select>
+					<select
+						name="search-country"
+						id="search-country"
+						onchange="getCountryMeals()"
+					>
+						<option value="dddd" default>Choisir un pays</option>
+					</select>
 				</article>
 			</section>
 			<div id="recipe-container"></div>

@@ -1,7 +1,6 @@
 let searchIngredient = document.querySelector("#ingredient-input");
 let searchIngredientButton = document.querySelector("#submit-ingredient");
 let body = document.querySelector("body");
-let countrySelect = document.querySelector("#search-country");
 let categorySelect = document.querySelector("#search-category");
 const recipeContainer = document.querySelector("#recipe-container");
 
@@ -10,7 +9,6 @@ async function getMealsByIngredient(ingredient) {
 
 	try {
 		const res = await fetch(url);
-		console.log(res);
 		if (!res.ok) {
 			throw new Error(`Response status: ${res.status}`);
 		}
@@ -42,6 +40,7 @@ searchIngredientButton.addEventListener("click", async () => {
 		) {
 			alert("Entrez un nom d'ingrédient");
 		} else {
+			recipeContainer.innerHTML = "";
 			getMealsByIngredient(searchIngredient.value);
 		}
 	} catch (error) {

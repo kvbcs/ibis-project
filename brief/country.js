@@ -1,3 +1,5 @@
+let countrySelect = document.querySelector("#search-country");
+
 async function getCountries() {
 	const url = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
 
@@ -27,15 +29,21 @@ async function getMealsByCountry(country) {
 
 	try {
 		const res = await fetch(url);
-		console.log(res);
 		if (!res.ok) {
 			throw new Error(`Response status: ${res.status}`);
 		}
 
 		const result = await res.json();
 		console.log("Success", result);
-		result.forEach((meal) => {
-			body.innerHTML = `<div>${meal.strMeal}</div>`;
+		result.meals.forEach((recipe) => {
+			const newDiv = document.createElement("div");
+			const newImg = document.createElement("img");
+			newDiv.textContent = recipe.strMeal;
+			newDiv.id = recipe.idMeal;
+			newDiv.classList.add("recipe-div");
+			newImg.src = `${recipe.strMealThumb}/preview`;
+			newDiv.appendChild(newImg);
+			recipeContainer.appendChild(newDiv);
 		});
 	} catch (error) {
 		console.error("Error", error.message);
@@ -43,3 +51,8 @@ async function getMealsByCountry(country) {
 }
 
 getCountries();
+
+const getCountryMeals = () => {
+	recipeContainer.innerHTML = "";
+	getMealsByCountry(countrySelect.value);
+};
