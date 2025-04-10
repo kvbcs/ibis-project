@@ -1,3 +1,10 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
 #recipe-container {
 	width: 100%;
 	min-height: 30vh;
@@ -16,7 +23,7 @@ article {
 	padding: 0;
 	margin: 0;
 }
-#search-input {
+#search-input, #search-country {
 	width: 90%;
 	padding: 10px;
 	border-radius: 25px;
