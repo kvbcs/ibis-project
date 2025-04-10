@@ -4,7 +4,6 @@ async function getCategories() {
 
 	try {
 		const res = await fetch(url);
-		console.log(res);
 		if (!res.ok) {
 			throw new Error(`Response status: ${res.status}`);
 		}

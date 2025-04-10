@@ -1,8 +1,8 @@
 :root {
-	--VertNature: "#4CAF50";
-	--OrangeVitaminé: "#FF9800";
-	--BlancPur: "#FFFFFF";
-	--GrisDoux: "#9E9E9E";
+	--VertNature: #4CAF50;
+	--OrangeVitaminé: #FF9800;
+	--BlancPur: #FFFFFF;
+	--GrisDoux: #9E9E9E;
 }
 
 * {
@@ -54,12 +54,15 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 20vh;
 }
 
+/* TODO: chercher google font */
 /* h2 {
 	font-family: "Montserrat";
 } */
-#recipe-container {
+
+#input-container {
 	width: 100%;
 	min-height: 30vh;
 	max-height: fit-content;
@@ -98,4 +101,35 @@ button {
 #flex-div > input {
 	height: 100%;
 	border: 1px solid black;
+}
+
+#recipe-container {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	align-items: center;
+}
+.recipe-div {
+	background-color: var(--OrangeVitaminé);
+	color: var(--BlancPur);
+	width: 80%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 30px;
+	align-items: center;
+	object-fit: cover;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 20px;
+	padding-bottom: 30px;
+	box-shadow: 1px 1px 5px;
+}
+.recipe-div > img {
+	height: 100%;
+	width: 100%;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
