@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+
+		<title>KekebonKekepabon - Recettes par ingrédients</title>
+	</head>
+	<body>
+		<header>
+			<div id="logo-container"><img src="/assets/logo.png" alt="" /></div>
+			<nav>
+				<ul>
+					<li>Accueil</li>
+					<li>Ingrédients</li>
+					<li>Catégories</li>
+					<li>Pays</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h1>Nos recettes</h1>
+
+			<section id="recipe-container">
+				<article>
+					<label for="search-category"
+						>Rechercher par catégorie</label
+					>
+					<select
+						name="search-category"
+						id="search-category"
+					></select>
+				</article>
+
+				<article id="flex-div">
+					<input
+						type="text"
+						name="ingredient"
+						id="ingredient-input"
+						placeholder="Rechercher par ingrédient"
+					/>
+					<button type="submit" id="submit-ingredient">
+						Rechercher
+					</button>
+				</article>
+				<article>
+					<label for="search-country">Rechercher par pays</label>
+					<select name="search-country" id="search-country"></select>
+				</article>
+			</section>
+		</main>
+	</body>
+	<script src="ingredient.js"></script>
+	<script src="country.js"></script>
+	<script src="category.js"></script>
+</html>
