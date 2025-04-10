@@ -17,17 +17,31 @@ async function getMealsByIngredient(ingredient) {
 		console.log("Success", result);
 
 		result.meals.forEach((recipe) => {
-			const newDiv = document.createElement("div");
-			const newImg = document.createElement("img");
+			newDiv = document.createElement("div");
+			newImg = document.createElement("img");
 			newDiv.textContent = recipe.strMeal;
 			newDiv.id = recipe.idMeal;
 			newDiv.classList.add("recipe-div");
-			newImg.src = `${recipe.strMealThumb}/preview`;
+			newImg.src = `${recipe.strMealThumb}/medium`;
 			newDiv.appendChild(newImg);
 			recipeContainer.appendChild(newDiv);
+			newDiv.addEventListener("click", () => {
+				console.log(getDetails(recipe.idMeal));
+			});
 		});
 	} catch (error) {
 		console.error("Error", error.message);
+	}
+}
+
+async function getDetails(id) {
+	const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
+	try {
+		const res = await fetch(url);
+		const result = await res.json();
+		console.log(result);
+	} catch (error) {
+		alert(error);
 	}
 }
 
