@@ -1,0 +1,35 @@
+#recipe-container {
+	width: 100%;
+	min-height: 30vh;
+	max-height: fit-content;
+	/* background-color: red; */
+	margin: 10vh 0;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+article {
+	width: 90%;
+	padding: 0;
+	margin: 0;
+}
+#search-input {
+	width: 90%;
+	padding: 10px;
+	border-radius: 25px;
+}
+
+#flex-div {
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+	/* background-color: green; */
+	gap: 10px;
+}
+#flex-div > input {
+	height: 100%;
+    border: 1px solid black;
+}
