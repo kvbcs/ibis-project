@@ -50,14 +50,22 @@ async function getDetails1(id) {
 			newText.textContent = detail.strInstructions;
 
 			const ingredientsList = document.createElement("ul");
-			ingredientsList.classList.add("ingredients-list")
+			const measuresList = document.createElement("ul");
+
+			ingredientsList.classList.add("ingredients-list");
+			measuresList.classList.add("ingredients-list");
+
 			for (let i = 1; i <= 20; i++) {
+				const measure = detail[`strMeasure${i}`];
+
 				const ingredient = detail[`strIngredient${i}`];
 				if (ingredient && ingredient.trim() !== "") {
 					const li = document.createElement("li");
 					li.textContent = ingredient;
+					li.title = measure
 					ingredientsList.appendChild(li);
 				}
+				
 			}
 			existingDiv.appendChild(newText);
 
