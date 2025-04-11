@@ -1,6 +1,5 @@
 let searchIngredient = document.querySelector("#ingredient-input");
 let searchIngredientButton = document.querySelector("#submit-ingredient");
-let body = document.querySelector("body");
 let categorySelect = document.querySelector("#search-category");
 const recipeContainer = document.querySelector("#recipe-container");
 
@@ -14,7 +13,6 @@ async function getMealsByIngredient(ingredient) {
 		}
 
 		const result = await res.json();
-		console.log("Success (ingredients)", result);
 
 		result.meals.forEach((recipe) => {
 			newDiv = document.createElement("div");
@@ -26,7 +24,7 @@ async function getMealsByIngredient(ingredient) {
 			newDiv.appendChild(newImg);
 			recipeContainer.appendChild(newDiv);
 			newDiv.addEventListener("click", () => {
-				getDetails1(recipe.idMeal);
+				getDetails(recipe.idMeal);
 			});
 		});
 	} catch (error) {
@@ -34,7 +32,7 @@ async function getMealsByIngredient(ingredient) {
 	}
 }
 
-async function getDetails1(id) {
+async function getDetails(id) {
 	const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 	try {
 		const res = await fetch(url);
@@ -62,10 +60,24 @@ async function getDetails1(id) {
 				if (ingredient && ingredient.trim() !== "") {
 					const li = document.createElement("li");
 					li.textContent = ingredient;
-					li.title = measure
+					li.title = measure;
+					li.addEventListener("mouseenter", () => {
+						ingredientImg = document.createElement("img");
+						measureText = document.createElement("p");
+						measureText.innerHTML = measure;
+						li.appendChild(measureText);
+
+						ingredientImg.style.height = "100px";
+						ingredientImg.src = `https://www.themealdb.com/images/ingredients/${ingredient}.png`;
+						li.appendChild(ingredientImg);
+
+						li.addEventListener("mouseleave", () => {
+							li.removeChild(ingredientImg);
+						});
+					});
+
 					ingredientsList.appendChild(li);
 				}
-				
 			}
 			existingDiv.appendChild(newText);
 
@@ -83,7 +95,7 @@ searchIngredientButton.addEventListener("click", async () => {
 			searchIngredient.value === null ||
 			searchIngredient.value === undefined
 		) {
-			alert("Entrez un nom d'ingrédient");
+			alert("Entrez un nom d'ingrédient en anglais");
 		} else {
 			recipeContainer.innerHTML = "";
 			getMealsByIngredient(searchIngredient.value);

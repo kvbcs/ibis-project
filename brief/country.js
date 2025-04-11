@@ -23,16 +23,6 @@ async function getCountries() {
 	}
 }
 
-async function getDetails(id) {
-	const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
-	try {
-		const res = await fetch(url);
-		const result = await res.json();
-	} catch (error) {
-		alert(error);
-	}
-}
-
 async function getMealsByCountry(country) {
 	const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}
 `;
@@ -55,7 +45,7 @@ async function getMealsByCountry(country) {
 			newDiv.appendChild(newImg);
 			recipeContainer.appendChild(newDiv);
 			newDiv.addEventListener("click", () => {
-				console.log(getDetails(recipe.idMeal));
+				getDetails(recipe.idMeal);
 			});
 		});
 	} catch (error) {

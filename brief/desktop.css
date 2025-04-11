@@ -1,0 +1,19 @@
+@media only screen and (min-width: 376px) {
+	main {
+		width: 90%;
+		margin: auto;
+        margin-bottom: 100px;
+	}
+	#recipe-container {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 150px 20px;
+        justify-content: space-evenly;
+        align-items: center;
+	}
+	.recipe-div {
+		min-height: 400px;
+		width: 400px;
+        max-height: fit-content;
+	}
+}
