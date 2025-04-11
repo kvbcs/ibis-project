@@ -1,8 +1,8 @@
 :root {
-	--VertNature: #4CAF50;
-	--OrangeVitaminé: #FF9800;
-	--BlancPur: #FFFFFF;
-	--GrisDoux: #9E9E9E;
+	--VertNature: #4caf50;
+	--OrangeVitaminé: #ff9800;
+	--BlancPur: #ffffff;
+	--GrisDoux: #9e9e9e;
 }
 
 * {
@@ -132,4 +132,21 @@ button {
 	width: 100%;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
+}
+
+.instructions {
+	font-size: 14px;
+	padding: 20px;
+}
+
+.ingredients-list {
+	width: 50%;
+	background-color: green;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	font-size: 12px;
+	list-style: circle;
+	padding: 20px 20px;
+	margin-right: 50%;
 }

@@ -26,7 +26,6 @@ async function getDetails(id) {
 	try {
 		const res = await fetch(url);
 		const result = await res.json();
-		console.log(result);
 	} catch (error) {
 		alert(error);
 	}

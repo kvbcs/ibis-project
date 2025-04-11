@@ -14,7 +14,7 @@ async function getMealsByIngredient(ingredient) {
 		}
 
 		const result = await res.json();
-		console.log("Success", result);
+		console.log("Success (ingredients)", result);
 
 		result.meals.forEach((recipe) => {
 			newDiv = document.createElement("div");
@@ -26,7 +26,7 @@ async function getMealsByIngredient(ingredient) {
 			newDiv.appendChild(newImg);
 			recipeContainer.appendChild(newDiv);
 			newDiv.addEventListener("click", () => {
-				console.log(getDetails(recipe.idMeal));
+				getDetails1(recipe.idMeal);
 			});
 		});
 	} catch (error) {
@@ -34,12 +34,35 @@ async function getMealsByIngredient(ingredient) {
 	}
 }
 
-async function getDetails(id) {
+async function getDetails1(id) {
 	const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
 	try {
 		const res = await fetch(url);
+		if (!res.ok) {
+			throw new Error(`Response status: ${res.status}`);
+		}
 		const result = await res.json();
-		console.log(result);
+
+		result.meals.forEach((detail) => {
+			existingDiv = document.getElementById(id);
+			newText = document.createElement("p");
+			newText.classList.add("instructions");
+			newText.textContent = detail.strInstructions;
+
+			const ingredientsList = document.createElement("ul");
+			ingredientsList.classList.add("ingredients-list")
+			for (let i = 1; i <= 20; i++) {
+				const ingredient = detail[`strIngredient${i}`];
+				if (ingredient && ingredient.trim() !== "") {
+					const li = document.createElement("li");
+					li.textContent = ingredient;
+					ingredientsList.appendChild(li);
+				}
+			}
+			existingDiv.appendChild(newText);
+
+			existingDiv.appendChild(ingredientsList);
+		});
 	} catch (error) {
 		alert(error);
 	}
