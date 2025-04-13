@@ -1,4 +1,19 @@
 @media only screen and (min-width: 376px) {
+	header{
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+height: 20vh;
+	}
+	#logo-container{
+		width: 300px;
+		
+	}
+	header>nav{
+		width: 10%;
+		justify-content: end;
+	}
+	
 	main {
 		width: 90%;
 		margin: auto;

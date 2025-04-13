@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="desktop.css">
+		<link rel="stylesheet" href="desktop.css" />
 		<title>KekebonKekepabon - Recettes par ingrédients</title>
 	</head>
 	<body>
@@ -12,7 +12,7 @@
 			<div id="logo-container"><img src="/assets/logo.png" alt="" /></div>
 			<nav>
 				<ul>
-					<li>Accueil</li>
+					<a href="/index.html"><li>Accueil</li></a>
 				</ul>
 			</nav>
 		</header>
@@ -29,7 +29,7 @@
 						id="search-category"
 						onchange="getCategoryMeals()"
 					>
-						<option value="">Choisir une catégorie</option>
+						<option disabled selected>Choisir une catégorie</option>
 					</select>
 				</article>
 
@@ -51,7 +51,7 @@
 						id="search-country"
 						onchange="getCountryMeals()"
 					>
-						<option value="dddd" default>Choisir un pays</option>
+						<option disabled selected>Choisir un pays</option>
 					</select>
 				</article>
 			</section>
@@ -61,4 +61,5 @@
 	<script src="ingredient.js"></script>
 	<script src="country.js"></script>
 	<script src="category.js"></script>
+	<script src="details.js"></script>
 </html>
