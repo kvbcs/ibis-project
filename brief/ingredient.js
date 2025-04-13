@@ -1,11 +1,9 @@
 let searchIngredient = document.querySelector("#ingredient-input");
 let searchIngredientButton = document.querySelector("#submit-ingredient");
-let categorySelect = document.querySelector("#search-category");
 const recipeContainer = document.querySelector("#recipe-container");
 
 const getMealsByIngredient = (ingredient) => {
 	const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
-
 	try {
 		fetch(url)
 			.then((res) => res.json())
@@ -15,10 +13,8 @@ const getMealsByIngredient = (ingredient) => {
 						"Ingrédient invalide ou inexistant, écrivez en anglais"
 					);
 				}
-
 				data.meals.forEach((recipe) => {
 					//Création d'éléments
-
 					newDiv = document.createElement("div");
 					newImg = document.createElement("img");
 					newDiv.textContent = recipe.strMeal;
@@ -29,7 +25,6 @@ const getMealsByIngredient = (ingredient) => {
 					recipeContainer.appendChild(newDiv);
 
 					//Fonction d'affichage des détails
-
 					newDiv.addEventListener("click", async () => {
 						getDetails(recipe.idMeal);
 					});

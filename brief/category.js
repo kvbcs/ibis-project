@@ -1,3 +1,5 @@
+let categorySelect = document.querySelector("#search-category");
+
 async function getCategories() {
 	const url = `https://www.themealdb.com/api/json/v1/1/list.php?c=list`;
 
@@ -26,7 +28,6 @@ const getMealsByCategories = (category) => {
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("Success", data);
 				data.meals.forEach((recipe) => {
 					const newDiv = document.createElement("div");
 					const newImg = document.createElement("img");
