@@ -2,22 +2,20 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="desktop.css" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="style.css" />
+		<link
+			rel="stylesheet"
+			href="desktop.css" />
 		<title>KekebonKekepabon - Recettes par ingrédients</title>
 	</head>
 	<body>
-		<header>
-			<div id="logo-container"><img src="/assets/logo.png" alt="" /></div>
-			<nav>
-				<ul>
-					<a href="/index.html"><li>Accueil</li></a>
-				</ul>
-			</nav>
-		</header>
 		<main>
-			<h1>Nos recettes</h1>
+			<h1 style="margin-top: 10vh">Nos recettes</h1>
 
 			<section id="input-container">
 				<article>
@@ -27,9 +25,12 @@
 					<select
 						name="search-category"
 						id="search-category"
-						onchange="getCategoryMeals()"
-					>
-						<option disabled selected>Choisir une catégorie</option>
+						onchange="getCategoryMeals()">
+						<option
+							disabled
+							selected>
+							Choisir une catégorie
+						</option>
 					</select>
 				</article>
 
@@ -38,9 +39,10 @@
 						type="text"
 						name="ingredient"
 						id="ingredient-input"
-						placeholder="Rechercher par ingrédient"
-					/>
-					<button type="submit" id="submit-ingredient">
+						placeholder="Rechercher par ingrédient" />
+					<button
+						type="submit"
+						id="submit-ingredient">
 						Rechercher
 					</button>
 				</article>
@@ -49,9 +51,12 @@
 					<select
 						name="search-country"
 						id="search-country"
-						onchange="getCountryMeals()"
-					>
-						<option disabled selected>Choisir un pays</option>
+						onchange="getCountryMeals()">
+						<option
+							disabled
+							selected>
+							Choisir un pays
+						</option>
 					</select>
 				</article>
 			</section>
