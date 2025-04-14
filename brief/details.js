@@ -5,6 +5,8 @@ const getDetails = (id) => {
 			.then((res) => res.json())
 			.then((data) =>
 				data.meals.forEach((detail) => {
+
+					//Création d'éléments
 					existingDiv = document.getElementById(id);
 					existingDiv.innerHTML = "";
 
@@ -19,7 +21,7 @@ const getDetails = (id) => {
 					ingredientsList.classList.add("ingredients-list");
 					measuresList.classList.add("ingredients-list");
 
-					//Boucle pour parcourir les ingrédients et mesures
+					//Boucle pour parcourir les strings d'ingrédients et mesures
 					for (let i = 1; i <= 20; i++) {
 						const measure = detail[`strMeasure${i}`];
 						const ingredient = detail[`strIngredient${i}`];
@@ -40,6 +42,7 @@ const getDetails = (id) => {
 								ingredientImg.src = `https://www.themealdb.com/images/ingredients/${ingredient}.png`;
 								li.appendChild(ingredientImg);
 
+								//Suppression de l'affichage quand le survol s'arrête
 								li.addEventListener("mouseleave", () => {
 									li.removeChild(ingredientImg);
 									li.removeChild(measureText);

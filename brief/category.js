@@ -5,12 +5,16 @@ async function getCategories() {
 
 	try {
 		const res = await fetch(url);
+
+		//Si erreur, affichage du statut
 		if (!res.ok) {
 			throw new Error(`Response status: ${res.status}`);
 		}
 
 		const data = await res.json();
 		data.meals.forEach((category) => {
+			//Création d'éléments
+
 			const newOption = document.createElement("option");
 			newOption.value = category.strCategory;
 			newOption.textContent = category.strCategory;
@@ -29,6 +33,8 @@ const getMealsByCategories = (category) => {
 			.then((res) => res.json())
 			.then((data) => {
 				data.meals.forEach((recipe) => {
+					//Création d'éléments
+
 					const newDiv = document.createElement("div");
 					const newImg = document.createElement("img");
 					newDiv.textContent = recipe.strMeal;
@@ -37,6 +43,8 @@ const getMealsByCategories = (category) => {
 					newImg.src = `${recipe.strMealThumb}/medium`;
 					newDiv.appendChild(newImg);
 					recipeContainer.appendChild(newDiv);
+
+					//Fonction d'affichage de détails
 					newDiv.addEventListener("click", () => {
 						getDetails(recipe.idMeal);
 					});
@@ -49,6 +57,7 @@ const getMealsByCategories = (category) => {
 
 getCategories();
 
+//Fonction qui joue onchange du select
 const getCategoryMeals = () => {
 	recipeContainer.innerHTML = "";
 	getMealsByCategories(categorySelect.value);

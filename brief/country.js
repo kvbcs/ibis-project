@@ -14,6 +14,8 @@ async function getCountries() {
 		const data = await res.json();
 
 		data.meals.forEach((country) => {
+			//Création d'éléments
+
 			const newOption = document.createElement("option");
 			newOption.value = country.strArea;
 			newOption.textContent = country.strArea;
@@ -35,6 +37,7 @@ const getMealsByCountry = (country) => {
 			.then((res) => res.json())
 			.then((data) => {
 				data.meals.forEach((recipe) => {
+					//Création d'éléments
 					const newDiv = document.createElement("div");
 					const newImg = document.createElement("img");
 					newDiv.textContent = recipe.strMeal;
@@ -43,6 +46,8 @@ const getMealsByCountry = (country) => {
 					newImg.src = `${recipe.strMealThumb}/medium`;
 					newDiv.appendChild(newImg);
 					recipeContainer.appendChild(newDiv);
+
+					//Fonction d'affichage de détails
 					newDiv.addEventListener("click", () => {
 						getDetails(recipe.idMeal);
 					});
